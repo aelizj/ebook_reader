@@ -38,4 +38,10 @@ helpers do
       "<p>#{paragraph}</p>"
     end.join
   end
+
+  def search_full_text(query)
+    results = []
+    
+    results
+  end
 end
