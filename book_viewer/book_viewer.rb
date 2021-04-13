@@ -15,11 +15,21 @@ end
 get "/chapters/:number" do
   number = params[:number].to_i
   @chapter_title = @contents[number - 1]
-  @title = "Chapter #{number}: #{@chapter_title}"
 
+  redirect "/" unless (1..@contents.size).cover? number
+
+  @title = "Chapter #{number}: #{@chapter_title}"
   @chapter = File.read("data/chp#{number}.txt")
 
   erb :chapter
+end
+
+get "/search" do
+  erb :search
+end
+
+not_found do
+  redirect "/"
 end
 
 helpers do
