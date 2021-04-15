@@ -26,7 +26,6 @@ end
 
 get "/search" do
 @results = chapters_matching(params[:query])
-@displayable_result = highlight(@result)
 erb :search
 end
 
@@ -41,12 +40,8 @@ helpers do
     end.join
   end
 
-  def highlight(target)
-    @results[:paragraphs].map do |paragraph|
-      #find location where target begins
-      #use this + length of target to determine what needs to be highlighted
-      #figure out how to convey this logic in ERB to turn it into <strong> tags
-    end
+  def highlight(text, term)
+    text.gsub(term, %(<strong>#{term}</strong>))
   end
 end
 
