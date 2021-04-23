@@ -35,6 +35,7 @@ GEM
     tilt (2.0.10)
 
 PLATFORMS
+  ruby
   x64-mingw32
 
 DEPENDENCIES
